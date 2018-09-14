@@ -1,0 +1,15 @@
+/* 
+    Created on : Jan 13, 2015, 10:51:54 AM
+    Author     : nogsantos
+*/
+
+html{
+    font-size: 0.9em !important;
+}
+
+.appTable{
+    padding: 10px !important;
+}
+.appTable input[type=text]{
+    border-top: 1px solid red !important;
+}

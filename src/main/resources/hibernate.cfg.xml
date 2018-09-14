@@ -1,0 +1,29 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD .//EM"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/fservice</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.username">fabricio</property>
+        <property name="connection.password">guit23</property>
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!--somente para testes -->
+        <mapping class="br.eti.nogsantos.model.entity.Empresa"/>
+        <!--validas-->
+        <mapping class="br.eti.nogsantos.model.entity.Person"/>
+        <mapping class="br.eti.nogsantos.model.entity.Phone"/>
+        <mapping class="br.eti.nogsantos.model.entity.Sysuser"/>
+        <mapping class="br.eti.nogsantos.model.entity.Sysrole"/>
+        <mapping class="br.eti.nogsantos.model.entity.SysuserRole"/>
+        <!--<mapping class="br.eti.nogsantos.model.entity.Prospect"/>-->
+    </session-factory>
+	
+</hibernate-configuration>

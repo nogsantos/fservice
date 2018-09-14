@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>fservice</display-name>
+    <session-config>  
+        <session-timeout>30</session-timeout>  
+    </session-config> 
+    <!--página 404 [não localizada]-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/jsp/system/404.jsp</location>
+    </error-page>
+    <!--página 500 [erro no sistema]-->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/jsp/system/500.jsp</location>
+    </error-page>
+    <!--página 403 [permissão]-->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/jsp/system/403.jsp</location>
+    </error-page>
+    <!--força o default locale-->
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.locale</param-name>
+        <param-value>pt_BR</param-value>
+    </context-param>
+    <!--
+        configuração do ambiente, carrega as propriedades conforme for definido.
+        DEVELOPMENT
+        PRODUCTION
+    -->
+    <context-param>
+        <param-name>br.com.caelum.vraptor.environment</param-name>
+        <param-value>development</param-value>
+    </context-param>
+    <!--carregamento do messages-->
+    <context-param>
+        <param-name>
+            javax.servlet.jsp.jstl.fmt.localizationContext
+        </param-name>
+        <param-value>messages</param-value>
+    </context-param>
+    <!-- tiles configuration -->  
+    <listener>
+        <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>TilesServlet</servlet-name>
+        <servlet-class>org.apache.tiles.web.util.TilesDispatchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TilesServlet</servlet-name>
+        <url-pattern>*.tiles</url-pattern>
+    </servlet-mapping>
+    <!--listener do servidor-->
+    <listener>
+        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
+    </listener>
+</web-app>
